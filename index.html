@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="心誠不動産｜不動産の売却・買取・購入・空き家相談">
+  <title>心誠不動産｜不動産売買・買取・査定</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
+        "Yu Gothic", "Meiryo", sans-serif;
+      color: #172033;
+      background: #fff;
+      line-height: 1.8;
+    }
+
+    :root {
+      --navy: #062b57;
+      --navy2: #0b3b73;
+      --blue: #2f78b7;
+      --light: #edf6fc;
+      --gray: #f6f8fa;
+      --line: #dce3e9;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      background: rgba(255,255,255,.96);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e7ebef;
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: auto;
+      padding: 15px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 21px;
+      letter-spacing: .08em;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 9px;
+      letter-spacing: .22em;
+      color: #758296;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 680px;
+      background:
+        linear-gradient(105deg, rgba(3,31,64,.97) 0%, rgba(5,46,88,.91) 48%, rgba(22,91,145,.76) 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: 1180px;
+      margin: auto;
+      padding: 80px 25px;
+    }
+
+    .hero-label {
+      font-size: 13px;
+      letter-spacing: .2em;
+      color: #b9dcf5;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.25;
+      margin-bottom: 25px;
+      letter-spacing: .04em;
+    }
+
+    .hero h1 span {
+      color: #9fd7ff;
+    }
+
+    .hero p {
+      max-width: 660px;
+      font-size: 17px;
+      color: #e0edf8;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 27px;
+      border-radius: 5px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .btn-main {
+      background: white;
+      color: var(--navy);
+    }
+
+    .btn-sub {
+      border: 1px solid rgba(255,255,255,.55);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* COMMON */
+    section {
+      padding: 90px 22px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: .2em;
+      margin-bottom: 7px;
+    }
+
+    .section-title {
+      font-size: clamp(27px, 4vw, 40px);
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      color: #667085;
+      max-width: 680px;
+      margin-bottom: 45px;
+    }
+
+    /* SERVICES */
+    .services {
+      background: var(--gray);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 34px 28px;
+      border: 1px solid #e5e9ed;
+      border-radius: 7px;
+      box-shadow: 0 8px 25px rgba(0,35,70,.05);
+    }
+
+    .card-number {
+      color: #83b9df;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .card h3 {
+      color: var(--navy);
+      font-size: 21px;
+      margin: 12px 0;
+    }
+
+    .card p {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    /* DIFFICULT */
+    .difficult {
+      background: var(--navy);
+      color: white;
+    }
+
+    .difficult .section-title {
+      color: white;
+    }
+
+    .difficult .section-desc {
+      color: #c8d8e8;
+    }
+
+    .tags {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 12px;
+    }
+
+    .tag {
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      padding: 22px 15px;
+      text-align: center;
+      font-weight: 600;
+      border-radius: 5px;
+    }
+
+    /* FLOW */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 15px;
+    }
+
+    .step {
+      border-top: 3px solid var(--blue);
+      background: var(--light);
+      padding: 25px 20px;
+    }
+
+    .step strong {
+      display: block;
+      color: var(--blue);
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .step h3 {
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .step p {
+      font-size: 13px;
+      color: #65758b;
+      margin-top: 8px;
+    }
+
+    /* CTA */
+    .cta {
+      background: #edf6fc;
+      text-align: center;
+    }
+
+    .cta-box {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      padding: 55px 30px;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,40,80,.08);
+    }
+
+    .cta h2 {
+      color: var(--navy);
+      font-size: clamp(27px,4vw,40px);
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #667085;
+      margin-bottom: 28px;
+    }
+
+    .line-btn {
+      display: inline-block;
+      background: #06c755;
+      color: white;
+      font-weight: bold;
+      padding: 16px 35px;
+      border-radius: 6px;
+    }
+
+    /* COMPANY */
+    .company-table {
+      max-width: 800px;
+      border-top: 1px solid var(--line);
+    }
+
+    .company-row {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      border-bottom: 1px solid var(--line);
+      padding: 18px 5px;
+    }
+
+    .company-row strong {
+      color: var(--navy);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #031d3b;
+      color: white;
+      padding: 45px 22px 100px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .footer-logo {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .copyright {
+      color: #7890aa;
+      font-size: 11px;
+      margin-top: 25px;
+    }
+
+    /* MOBILE FIXED CTA */
+    .fixed-contact {
+      display: none;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: 610px;
+      }
+
+      .cards,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .tags {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+
+      .company-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .fixed-contact {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        z-index: 999;
+        box-shadow: 0 -3px 15px rgba(0,0,0,.12);
+      }
+
+      .fixed-contact a {
+        padding: 15px 5px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .fixed-contact .assessment {
+        background: white;
+        color: var(--navy);
+      }
+
+      .fixed-contact .line {
+        background: #06c755;
+        color: white;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      CTC　心誠不動産
+      <small>SHINSEI REAL ESTATE</small>
+    </div>
+
+    <nav>
+      <a href="#service">事業内容</a>
+      <a href="#difficult">不動産売却</a>
+      <a href="#flow">ご相談の流れ</a>
+      <a href="#company">会社情報</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-label">REAL ESTATE SOLUTIONS</div>
+
+    <h1>
+      不動産に、<br>
+      <span>最適な出口を。</span>
+    </h1>
+
+    <p>
+      土地・戸建・空き家・古家付き土地など、
+      不動産の売却・買取・購入をサポート。
+      一つひとつの物件に合わせた売却方法をご提案します。
+    </p>
+
+    <div class="buttons">
+      <a href="#contact" class="btn btn-main">無料査定・売却相談</a>
+      <a href="#service" class="btn btn-sub">サービスを見る</a>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="service" class="services">
+  <div class="container">
+
+    <div class="section-label">SERVICE</div>
+    <h2 class="section-title">不動産売買を、もっと分かりやすく。</h2>
+
+    <p class="section-desc">
+      売却価格だけではなく、物件の状態・立地・将来性を確認し、
+      それぞれの不動産に適した方法をご提案します。
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-number">01</div>
+        <h3>不動産売却・査定</h3>
+        <p>
+          土地・戸建などの売却相談から査定まで対応。
+          地域相場や物件条件を確認した上で売却方法をご提案します。
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">02</div>
+        <h3>不動産買取</h3>
+        <p>
+          仲介だけでなく買取についてもご相談いただけます。
+          売却スピードを重視したい方にも対応します。
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">03</div>
+        <h3>不動産購入</h3>
+        <p>
+          土地・住宅の購入をご検討の方へ。
+          物件選びから購入までの流れをサポートします。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="difficult" class="difficult">
+  <div class="container">
+
+    <div class="section-label">PROPERTY CONSULTATION</div>
+
+    <h2 class="section-title">
+      「売れるか分からない」不動産も<br>
+      まずはご相談ください。
+    </h2>
+
+    <p class="section-desc">
+      一般的な土地・戸建だけでなく、
+      活用方法や売却方法に悩みやすい不動産についてもご相談いただけます。
+    </p>
+
+    <div class="tags">
+      <div class="tag">空き家</div>
+      <div class="tag">古家付き土地</div>
+      <div class="tag">旗竿地</div>
+      <div class="tag">相続不動産</div>
+      <div class="tag">狭小地</div>
+      <div class="tag">管理が難しい土地</div>
+      <div class="tag">再建築等の確認が必要な物件</div>
+      <div class="tag">その他の不動産</div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="flow">
+  <div class="container">
+
+    <div class="section-label">FLOW</div>
+    <h2 class="section-title">売却相談の流れ</h2>
+
+    <p class="section-desc">
+      「まだ売るか決めていない」という段階でもご相談いただけます。
+    </p>
+
+    <div class="flow">
+
+      <div class="step">
+        <strong>STEP 01</strong>
+        <h3>お問い合わせ</h3>
+        <p>LINE等からお気軽にお問い合わせください。</p>
+      </div>
+
+      <div class="step">
+        <strong>STEP 02</strong>
+        <h3>物件調査</h3>
+        <p>所在地や土地・建物の状況を確認します。</p>
+      </div>
+
+      <div class="step">
+        <strong>STEP 03</strong>
+        <h3>査定・ご提案</h3>
+        <p>査定価格と売却方法をご説明します。</p>
+      </div>
+
+      <div class="step">
+        <strong>STEP 04</strong>
+        <h3>売却サポート</h3>
+        <p>ご希望に合わせて売却を進めます。</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contact" class="cta">
+  <div class="container">
+
+    <div class="cta-box">
+      <div class="section-label">CONTACT</div>
+
+      <h2>不動産のこと、まずはご相談ください。</h2>
+
+      <p>
+        売却・査定・購入・空き家など、<br>
+        不動産に関するご相談を受け付けています。
+      </p>
+
+      <!-- 後で公式LINEのURLに変更 -->
+      <a href="#" class="line-btn">
+        LINEで無料相談
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="company">
+  <div class="container">
+
+    <div class="section-label">COMPANY</div>
+    <h2 class="section-title">会社情報</h2>
+
+    <div class="company-table">
+
+      <div class="company-row">
+        <strong>会社名</strong>
+        <span>株式会社CTC　心誠不動産</span>
+      </div>
+
+      <div class="company-row">
+        <strong>事業内容</strong>
+        <span>不動産売買・仲介・買取・不動産相談</span>
+      </div>
+
+      <div class="company-row">
+        <strong>営業時間</strong>
+        <span>9:00〜17:30</span>
+      </div>
+
+      <div class="company-row">
+        <strong>定休日</strong>
+        <span>水曜日・日曜日</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-logo">CTC　心誠不動産</div>
+
+    <p>
+      不動産に、最適な出口を。
+    </p>
+
+    <div class="copyright">
+      © CTC SHINSEI REAL ESTATE. All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
+
+
+<div class="fixed-contact">
+  <a href="#contact" class="assessment">無料査定</a>
+  <a href="#contact" class="line">LINEで相談</a>
+</div>
+
+
+</body>
+</html>
