@@ -45,3 +45,11 @@ figure{margin:0}.photo-hero{overflow:hidden;isolation:isolate}.hero-background{p
 
 /* Compact service navigation */
 .abcde-nav a{min-height:50px}.abcde-nav strong{font-size:15px}@media(max-width:650px){.abcde-nav a{min-height:46px}.abcde-nav strong{font-size:13px}}
+
+/* Licensed category imagery, with readable labels and solid-color fallback. */
+.abcde-nav a:nth-child(1){background-image:linear-gradient(180deg,rgba(5,25,43,.06),rgba(5,25,43,.3) 35%,rgba(5,25,43,.88)),url("./nav-sale.jpg");background-size:cover;background-position:center;}
+.abcde-nav a:nth-child(2){background-image:linear-gradient(180deg,rgba(5,25,43,.06),rgba(5,25,43,.3) 35%,rgba(5,25,43,.88)),url("./nav-purchase.jpg");background-size:cover;background-position:center;}
+.abcde-nav a:nth-child(3){background-image:linear-gradient(180deg,rgba(5,25,43,.06),rgba(5,25,43,.3) 35%,rgba(5,25,43,.88)),url("./nav-rental.jpg");background-size:cover;background-position:center;}
+.abcde-nav a:nth-child(4){background-image:linear-gradient(180deg,rgba(5,25,43,.06),rgba(5,25,43,.3) 35%,rgba(5,25,43,.88)),url("./nav-business.jpg");background-size:cover;background-position:center;}
+.abcde-nav a:nth-child(5){background-image:linear-gradient(180deg,rgba(5,25,43,.06),rgba(5,25,43,.3) 35%,rgba(5,25,43,.88)),url("./nav-consult.jpg");background-size:cover;background-position:center;}
+.abcde-nav a{min-height:112px;align-items:center;justify-content:flex-end;flex-direction:column;padding:12px 4px;color:#fff;text-shadow:0 1px 5px #06172b}.abcde-nav a:hover,.abcde-nav a[aria-current=page]{box-shadow:inset 0 0 0 2px #fff,0 0 0 1px #234a66}.abcde-nav a:hover{filter:brightness(1.1)}.abcde-nav strong{font-size:16px}.nav-photo-note{font-size:11px;line-height:1.8;padding-bottom:20px;opacity:.85}.nav-photo-note a{text-decoration:underline}@media(max-width:650px){.abcde-nav a{min-height:74px;padding:8px 2px}.abcde-nav strong{font-size:13px}}

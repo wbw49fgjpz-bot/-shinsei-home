@@ -90,3 +90,11 @@ estimate.html / estimate.js を追加（全24ページ）。現在は相談文�
 ## ABCDEの目的別目次
 
 全ページ上部にA売却／B購入／C賃貸／D法人様／E相談を追加。売却・購入・新設の賃貸相談・業務提携・ホーム相談欄へリンク。rental.htmlは相談窓口で、募集物件情報や取り扱い保証は掲載していません。全25ページ。
+
+## Category navigation photos (2026-08-31)
+Pexels License https://www.pexels.com/license/ — free website/commercial use; no endorsement implied. Photos are decorative service imagery, not listings or employees. Resized to 600px; displayed with CSS cover/overlay.
+- nav-sale.jpg: Pexels User https://www.pexels.com/photo/facade-of-a-house-12577414/
+- nav-purchase.jpg: Max Vakhtbovych https://www.pexels.com/photo/interior-of-light-room-at-apartment-6186848/
+- nav-rental.jpg: https://www.pexels.com/photo/modern-apartment-building-exterior-31656146/
+- nav-business.jpg: https://www.pexels.com/photo/an-empty-meeting-room-13323677/
+- nav-consult.jpg: RDNE Stock project https://www.pexels.com/photo/two-people-having-a-meeting-in-the-office-7845357/
