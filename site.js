@@ -82,3 +82,23 @@ if (form) {
   });
   document.querySelector("#viewing-submit").disabled = false;
 }
+
+// The visitor chooses the purpose; only this tab-session preference is remembered.
+(()=>{
+ const choices=[...document.querySelectorAll('[data-audience-choice]')];if(!choices.length)return;
+ const params=new URLSearchParams(location.search);const explicit=params.get('audience');let saved=null;
+ try{saved=sessionStorage.getItem('shinsei-audience')}catch{}
+ let mode=['resident','owner'].includes(explicit)?explicit:(saved==='owner'?'owner':'resident');
+ function apply(next){mode=next;document.body.classList.toggle('audience-owner',mode==='owner');
+  choices.forEach(a=>{if(a.dataset.audienceChoice===mode)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+  document.querySelectorAll('[data-resident-copy]').forEach(el=>{el.textContent=el.dataset[mode+'Copy']});
+  document.querySelectorAll('[data-resident-href]').forEach(el=>{el.href=el.dataset[mode+'Href']});
+  const status=document.querySelector('.audience-status');if(status)status.textContent=mode==='owner'?'運用・事業の検討に合わせた表示':'暮らしをイメージする表示';
+  const text='心誠不動産 ご担当者様\n\n川越市小堤の土地について、販売状況と資料を教えてください。\n\n検討用途：'+(mode==='owner'?'投資・事業用（具体的な用途：）':'自宅用（希望する住まい：）')+'\nお名前：\n返信先：\nご質問：\n';
+  document.querySelectorAll('.odutsumi-mail').forEach(a=>{a.href='mailto:0000ctcctc@gmail.com?subject='+encodeURIComponent('川越市小堤の土地についての問い合わせ')+'&body='+encodeURIComponent(text)});
+  // Keep the explicit mode in internal navigation even if session storage is unavailable.
+  document.querySelectorAll('a[href]').forEach(a=>{const raw=a.getAttribute('href');if(raw.startsWith('#'))return;const u=new URL(raw,location.href);if(u.origin!==location.origin||!u.pathname.endsWith('.html')||a.hasAttribute('data-audience-choice'))return;u.searchParams.set('audience',mode);a.href=u.pathname+u.search+u.hash});
+  try{sessionStorage.setItem('shinsei-audience',mode)}catch{}
+ }
+ choices.forEach(a=>{const u=new URL(location.href);u.searchParams.set('audience',a.dataset.audienceChoice);a.href=u.pathname+u.search+u.hash;a.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();const next=a.dataset.audienceChoice;apply(next);const url=new URL(location.href);url.searchParams.set('audience',next);history.replaceState(null,'',url.pathname+url.search+url.hash)})});apply(mode);
+})();
