@@ -75,3 +75,12 @@ GitHub Pagesのプロジェクト配下ではドメイン直下のrobots.txtを�
 ホーム先頭に川越市小堤の土地の資料・販売状況問い合わせを追加。価格、面積、建築可否、利回り、現地写真は確認資料未受領のため未掲載。売主名や社内の現金化優先順位は公開していません。写真は別物件と誤認させないよう特集に使用していません。
 
 実需／大家・投資家の表示を訪問者が選択します。自動推測や追跡は行わず、sessionStorageに目的のみ保存。同一タブの移動とURLのaudienceパラメータで引き継ぎ。ストレージ拒否時も操作可能。問い合わせ文には物件名と選択用途を入れたメール下書きを生成します。自動送信はしません。LINEでは利用者が物件名を入力します。
+
+## 駅写真と査定相談（2026-08-31）
+
+実写写真3点を追加。Wikimedia Commonsの縮小版で、写真下に撮影時期・著作者・出典・ライセンスを明記。画像自体は各CC BY-SAライセンスの対象です。
+- 鶴ヶ島駅東口：MaedaAkihiko、2021年8月3日、CC BY-SA 4.0、File:Tsurugashima-STA East.jpg
+- 若葉駅東口：LERK、2009年8月13日、CC BY-SA 3.0（複数許諾のうち本ライセンスを選択）、File:Tobu-railway-tojo-main-line-Wakaba-station-east-entrance.jpg
+- 川越駅東口：© DAJF / Wikimedia Commons / CC BY-SA 4.0、2016年3月20日、File:Kawagoe Station east entrance 20160320.JPG
+
+estimate.html / estimate.js を追加（全24ページ）。現在は相談文作成・手動コピー・LINEへの移動・メール下書きのみ。国交省API未接続、実取引データ未受領のため、金額の自動表示機能は未実装・未公開。評価証明書は任意の参考情報として受け付け、固定倍率で換算しません。入力値はURLや保存領域に書き込みません。
