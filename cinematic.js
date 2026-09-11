@@ -15,13 +15,24 @@
       });
     }
     if(!reduce){
+      const depth=(selector,amount=18)=>qa(selector).forEach(el=>{
+        const r=el.getBoundingClientRect();
+        if(r.bottom< -r.height||r.top>innerHeight+r.height)return;
+        const t=Math.max(-1,Math.min(1,(r.top+r.height/2-innerHeight/2)/innerHeight));
+        el.style.setProperty('--depth',String(Math.abs(t)));
+        const image=q('img',el);
+        if(image)image.style.transform=`translate3d(0,${-t*amount}px,0) scale(1.1) rotateX(${t*3.5}deg)`;
+      });
+      depth('.gateway-card',20);
+      depth('.business-grid a',16);
+      depth('.philosophy-feature',22);
       const hero=q('.hero-media');
       if(hero&&y<innerHeight*1.2)hero.style.transform=`scale(${1.08+y/innerHeight*.09}) translateY(${y*.12}px)`;
       const stage=q('.transform-stage');
       if(stage){
         const r=stage.getBoundingClientRect(),total=stage.offsetHeight-innerHeight,t=Math.max(0,Math.min(1,-r.top/total));
         const bg=q('.problem-bg'),old=q('.transform-copy h2 span'),next=q('.transform-copy h2 b'),card=q('.value-card');
-        if(bg)bg.style.clipPath=`inset(${18*(1-t)}% ${26*(1-t)}% ${18*(1-t)}% ${26*(1-t)}% round 2px)`;
+        if(bg){bg.style.clipPath=`inset(${18*(1-t)}% ${26*(1-t)}% ${18*(1-t)}% ${26*(1-t)}% round 2px)`;bg.style.transform=`perspective(1100px) rotateX(${(1-t)*7}deg) translateZ(${t*46}px) scale(${.96+t*.04})`}
         if(old){old.style.opacity=String(1-Math.max(0,(t-.25)*2.5));old.style.transform=`translateY(${-50*t}px)`}
         if(next){next.style.opacity=String(Math.max(0,(t-.35)*2.3));next.style.transform=`translateY(${Math.max(0,40-90*t)}px)`}
         qa('.problem-cloud span').forEach((el,i)=>{const fade=Math.max(0,Math.min(1,(t-.28-i*.012)*2.2));el.style.opacity=String(1-fade);el.style.transform=`translate(${(i%2?1:-1)*fade*45}px,${fade*25}px)`});
