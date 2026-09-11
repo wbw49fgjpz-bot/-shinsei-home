@@ -32,5 +32,13 @@
   let ticking=false;addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{update();ticking=false});ticking=true}},{passive:true});update();
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('is-visible')}),{threshold:.14});qa('.reveal').forEach(el=>io.observe(el));
   const countIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting||e.target.dataset.done)return;e.target.dataset.done='1';const n=+e.target.dataset.count;if(reduce){e.target.textContent=n;return}const start=performance.now(),dur=900;const run=now=>{const t=Math.min(1,(now-start)/dur);e.target.textContent=Math.round(n*(1-Math.pow(1-t,3)));if(t<1)requestAnimationFrame(run)};requestAnimationFrame(run)}),{threshold:.5});qa('[data-count]').forEach(el=>countIO.observe(el));
+  qa('.gateway-card').forEach(card=>card.addEventListener('click',e=>{
+    if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button!==0||reduce)return;
+    e.preventDefault();
+    const href=card.href,transition=q('.page-transition');
+    card.classList.add('is-departing');
+    if(transition){transition.style.setProperty('--tap-x',`${e.clientX}px`);transition.style.setProperty('--tap-y',`${e.clientY}px`);transition.classList.add('is-active')}
+    setTimeout(()=>location.href=href,430);
+  }));
   if(!reduce){addEventListener('pointermove',e=>{document.documentElement.style.setProperty('--mx',`${e.clientX}px`);document.documentElement.style.setProperty('--my',`${e.clientY}px`)});qa('.btn,.service-links a').forEach(el=>el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.04}px,${(e.clientY-r.top-r.height/2)*.08}px)`}));qa('.btn,.service-links a').forEach(el=>el.addEventListener('pointerleave',()=>el.style.transform=''))}
 })();
